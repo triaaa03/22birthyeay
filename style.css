@@ -1,0 +1,191 @@
+:root{
+  --bg: #e6f8ef;          /* hijau pastel background */
+  --accent: #77c593;      /* hijau soft utama */
+  --muted: #5f6f5f;
+  --shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Reset sederhana */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg),#fff);
+  color:#2b2b2b;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Page container */
+.page{
+  max-width:980px;
+  margin:36px auto;
+  padding:22px;
+  text-align:center;
+}
+
+/* Sections */
+.page-section{ display:none; animation:fadeIn 0.6s ease both; }
+.page-section.active{ display:block; }
+
+/* Cover */
+.cover{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:center;
+  justify-content:center;
+  padding:40px 16px;
+}
+.cover-title{
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(32px, 6vw, 48px);
+  margin:0;
+  color: var(--accent);
+  text-shadow: 0 3px 12px rgba(119,197,147,0.15);
+  letter-spacing: 1px;
+}
+.cover-sub{
+  margin:0;
+  color:var(--muted);
+}
+
+/* Button */
+.btn{
+  background: linear-gradient(180deg,var(--accent), #5ea77b);
+  color:#fff;
+  border:0;
+  padding:12px 18px;
+  border-radius:14px;
+  cursor:pointer;
+  box-shadow: var(--shadow);
+  font-size:16px;
+  font-weight:600;
+}
+.btn:active{ transform:translateY(1px) }
+
+/* Hero title (artistik) */
+.hero{
+  font-family: 'Great Vibes', cursive;
+  color: var(--accent);
+  font-size: clamp(28px, 6vw, 44px);
+  margin: 8px 0 4px;
+  text-shadow: 0 3px 10px rgba(119,197,147,0.15);
+}
+.lead{
+  margin:0 0 18px;
+  color:var(--muted);
+}
+
+/* Foto utama */
+.photo, .note{
+  margin:18px auto;
+  max-width:360px;
+}
+.photo img{
+  width: 8cm;
+  height: 5cm;
+  object-fit: cover;
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  display:block;
+  border: 4px solid rgba(255,255,255,0.85);
+  margin: 0 auto;
+}
+
+/* Cards / notes */
+.card{
+  background: linear-gradient(180deg,#ffffff,#f0fbf4);
+  padding:14px 18px;
+  border-radius:14px;
+  box-shadow: 0 6px 18px rgba(119,197,147,0.12);
+  font-size:15px;
+  line-height:1.45;
+  color:#222;
+  text-align:center;
+}
+
+/* PHOTO SCATTER container */
+.photo-scatter{
+  width: min(92vw, 640px);
+  aspect-ratio: 5 / 3;
+  position: relative;
+  margin: 28px auto;
+  border-radius: 8px;
+}
+
+/* each scattered image */
+.photo-scatter img{
+  position: absolute;
+  max-width: 3cm;   /* batas maksimal, biar nggak kebesaran */
+  max-height: 3cm;
+  border-radius:10px;
+  box-shadow: var(--shadow);
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  will-change: transform;
+}
+
+
+/* Hover: bring forward & straighten */
+.photo-scatter img:hover{
+  transform: scale(1.14) rotate(0deg);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+  z-index: 999;
+}
+
+/* Positions scatter (tetap sama) */
+.r1  { top:  4%; left: 6%;  transform: rotate(-12deg); }
+.r2  { top:  3%; left: 24%; transform: rotate(8deg); }
+.r3  { top:  5%; left: 41%; transform: rotate(-6deg); }
+.r4  { top:  4%; left: 59%; transform: rotate(10deg); }
+.r5  { top:  4%; left: 76%; transform: rotate(-9deg); }
+
+.r6  { top: 27%; left: 7%;  transform: rotate(7deg); }
+.r7  { top: 26%; left: 21%; transform: rotate(-9deg); }
+.r8  { top: 29%; left: 36%; transform: rotate(6deg); }
+.r9  { top: 28%; left: 53%; transform: rotate(-7deg); }
+.r10 { top: 26%; left: 72%; transform: rotate(9deg); }
+
+.r11 { top: 52%; left: 6%;  transform: rotate(5deg); }
+.r12 { top: 50%; left: 20%; transform: rotate(-11deg); }
+.r13 { top: 54%; left: 38%; transform: rotate(8deg); }
+.r14 { top: 53%; left: 57%; transform: rotate(-6deg); }
+.r15 { top: 51%; left: 76%; transform: rotate(7deg); }
+
+.r16 { top: 76%; left: 11%; transform: rotate(-8deg); }
+.r17 { top: 78%; left: 29%; transform: rotate(9deg); }
+.r18 { top: 77%; left: 47%; transform: rotate(-5deg); }
+.r19 { top: 76%; left: 66%; transform: rotate(11deg); }
+.r20 { top: 74%; left: 84%; transform: rotate(-9deg); }
+
+/* Note selebar device */
+.note {
+  max-width: 100%;
+  width: 100%;
+  margin: 20px auto;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .photo, .note { max-width: 92vw; padding-left: 6px; padding-right: 6px; }
+  .card { padding: 12px; font-size:14px; }
+  .photo-scatter { width: 92vw; aspect-ratio: 5 / 4; margin: 18px auto; }
+  .photo-scatter img { width: 1.8cm; height: 1.8cm; }
+  .hero { font-size: clamp(22px, 8vw, 34px); }
+}
+
+/* Animasi */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(8px)}
+  to{opacity:1; transform:translateY(0)}
+}
